@@ -1,0 +1,17 @@
+<% result = @result %>
+
+<div class="wrapper-spring-wood text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+          <h1>******** Now your result ********</h1>
+          <h1>Your word: <%= @proposition %></h1>
+          <h1>Time Taken to answer: <%= result[:time] %> s</h1>
+          <h1>Translation: <%= result[:translation] %></h1>
+          <h1>Your score: <%= result[:score].round(2) %></h1>
+          <h1>Message: <%= result[:message] %></h1>
+          <h1><%= link_to 'Try again', root_path %></h1>
+      </div>
+    </div>
+  </div>
+</div>
