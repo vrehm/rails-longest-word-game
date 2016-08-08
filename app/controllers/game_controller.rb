@@ -19,7 +19,7 @@ class GameController < ApplicationController
     # vowel_frequency_cumulated = 0.3977
     vowel_frequency = 0.3
     vowels = ['A', 'E', 'I', 'O', 'U']
-    consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y', 'Z']
+    consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z']
     Array.new(grid_size) { rand > vowel_frequency ? consonants[rand(21)] : vowels[rand(5)] }
   end
 
@@ -46,15 +46,15 @@ class GameController < ApplicationController
   end
 
   def score_and_message(attempt, translation, grid, time)
-    if translation
-      if included?(attempt.upcase, grid)
+    if included?(attempt.upcase, grid)
+      if translation
         score = compute_score(attempt, time)
         [score, "well done"]
       else
-        [0, "not in the grid"]
+        [0, "not an english word"]
       end
     else
-      [0, "not an english word"]
+      [0, "not in the grid"]
     end
   end
 
